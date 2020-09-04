@@ -5,11 +5,12 @@ The Procedure involves two main parts.
 *  Preprocess the Image and Extract the puzzle
 *  Solve and Display
 ### Preprocessing the image:
+<img src = "Images/SudokuEasy.jpg" width=500 ><br>
 The image is performed with Gaussian blur and Adaptive Thresholding. Now the resultant binary image is fed into a dilation unit for better results in later events.
-The contours are detected and the contour with largest area is expected to be the puzzle's boundary. <br><img src = "Images/SudokuEasy.jpg" width=500><br>Now skewing is applied in case of distorted image. After this, the puzzle boundary coordinates are used to find the length of each of the 81 identical cells in the puzzle. Their coordinates are all found and added to a list in row by row fashion.
-<br><img src = "Images/First cropped cell.png" width=300>
-<img src = "Images/Another cell.png" width=300>
-<img src = "Images/Empty cell.png" width=300>
+The contours are detected and the contour with largest area is expected to be the puzzle's boundary. Now skewing is applied in case of distorted image. After this, the puzzle boundary coordinates are used to find the length of each of the 81 identical cells in the puzzle. Their coordinates are all found and added to a list in row by row fashion.
+<br><img src = "Images/First cropped cell.png" width=200>
+<img src = "Images/Another cell.png" width=200>
+<img src = "Images/Empty cell.png" width=200>
 <br>
 ### Extract the puzzle:
 Now, these portions are fed into pytesseract's image_to_string function one by one and the numbers are predicted. The empty cells are conditioned to return 0. They are then reshaped into [9,9] size and fed into the solving module. So the matrix of sudoku puzzle looks as follows.
@@ -25,7 +26,7 @@ Now, these portions are fed into pytesseract's image_to_string function one by o
 [2 0 0 5 1 0 0 0 0]]```
  <br>
  ### Solve and Display:
- The solution part ia a recursive function where we replace each zero with numbers from range(1,10) and check if it fits such that it doesnt appear in the same column or row or sub-square. This is done with the following function.
+ The solution part is a recursive function where we replace each zero with numbers from range(1,10) and check if it fits such that it doesnt appear in the same column or row or sub-square. This is done with the following function.
  <br>
  ```python
  def fits(n,r,c):
