@@ -8,3 +8,6 @@ The Procedure involves three main parts.
 ### Preprocessing the image:
 The image is performed with Gaussian blur and Adaptive Thresholding. Now the resultant binary image is fed into a dilation unit for better results in later events.
 The contours are detected and the contour with largest area is expected to be the puzzle's boundary. Now skewing is applied in case of distorted image. After this, the puzzle boundary coordinates are used to find the length of each of the 81 identical cells in the puzzle. They are all cropped and added to a list in row by row fashion.
+<img src = "Images/First cell cropped cell.png" width=200>
+<img src = "Images/Another cell.png" width=200>
+<img src = "Images/Empty cell.png" width=200>
